@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="main-container" >
+             <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">System users</li>
+                       <li class="breadcrumb-item active" aria-current="page"> View users</li>
+                </ol>
+            <hr/>
+        <div class="container-fluid">
+
+         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Lists User</h6>
+                    <h:form>
+                    <th> <h:commandLink  class="dropdown-item" html5:data-backdrop="static" html5:data-toggle="modal" html5:data-target="#bd-example-modal-lgusu" value="Create User" > 
+                                                        <i class="dw dw-edit2"></i>
+                                                        <f:ajax>
+                                                            
+                                                        </f:ajax>
+                                                    </h:commandLink></th>
+                                    <th> <h:commandLink  action="#{registroRequest.correoMasivo()}" class="dropdown-item"   value="Email masivo" > 
+                                                       
+                                                    </h:commandLink></th>
+                        </h:form>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                
+                                <tr>
+                                     <th class="table-plus datatable-nosort">Name</th>
+                                    <th>Last name</th>
+                                    <th>Email</th>
+                                    <th>Document</th>
+                                    <th>Document number</th>
+                                    <th>option</th>
+                                      
+                                </tr>
+
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                   <th class="table-plus datatable-nosort">Name</th>
+                                    <th>Last name</th>
+                                    <th>Email</th>
+                                    <th>Document</th>
+                                    <th>Document number</th>
+                                    <th>option</th>
+                                </tr>
+                            </tfoot>
+                            
+                                 <tbody>
+                                     <h:form>
+                                <c:forEach items="#{gestionUsuariosView.listarUsuario}" var="userIter">
+                                    <tr>
+                                        <td class="table-plus">#{userIter.nombres}</td>
+                                        <td>#{userIter.apellidos}</td>
+                                        <td>#{userIter.correo}</td>
+                                        <td>#{userIter.TDocumento}</td>
+                                        <td>#{userIter.numeroDocumento}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                    <i class="dw dw-more"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+
+                                                    <h:commandLink actionListener="#{gestionUsuariosView.cargarUsuario(userIter)}" class="dropdown-item" html5:data-backdrop="static" html5:data-toggle="modal" html5:data-target="#bd-example-modal-lg" value="Edit" > 
+                                                        <i class="dw dw-edit2"></i>
+                                                        <f:ajax render="formusu" ></f:ajax>
+                                                    </h:commandLink>
+
+                                                    <h:commandLink actionListener="#{gestionUsuariosView.eliminarUsuario(userIter)}" class="dropdown-item"  value="Delete"> 
+                                                        <i class="dw dw-delete-3"></i> 
+                                                    </h:commandLink>
+
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                         </h:form>
+                            </tbody>
+                          
+                          
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            
+            
+            </div>
+        
+                <div class="modal fade bs-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myLargeModalLabel">Editar User</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <h:form id="formusu" class="user">
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <h:outputLabel value="First Name" for="#modal_register"/>
+                                            <h:inputText requiredMessage="muts enter firstname" required="true" value="#{gestionUsuariosView.usueditar.nombres}" class="form-control form-control-user" id="exampleFirstName" />
+                                            <h:message for="exampleFirstName" style="color: red" /> 
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h:outputLabel value="Last Name" for="exampleLastName"/>
+                                            <h:inputText requiredMessage="muts enter lastname" required="true" value="#{gestionUsuariosView.usueditar.apellidos}" class="form-control form-control-user" id="exampleLastName" />
+                                            <h:message for="exampleLastName" style="color: red" /> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Email Address" for="exampleInputEmail"/>
+                                        <h:inputText requiredMessage="muts ener email addres" required="true" value="#{gestionUsuariosView.usueditar.correo}" class="form-control form-control-user" id="exampleInputEmail" />
+                                        <h:message for="exampleInputEmail" style="color: red" /> 
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Passworld" for="Password"/>
+                                        <h:inputSecret requiredMessage="muts enter passworld" required="true" value="#{gestionUsuariosView.usueditar.clave}" class="form-control form-control-user" id="Password" />
+                                        <h:message for="Password"  style="color: red"/> 
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <h:outputLabel  value="T Document" for="Doc"/>
+                                            <h:inputText disabled="true" value="#{gestionUsuariosView.usueditar.TDocumento}" id="Doc" class="form-control form-control-user"/>                                           
+                                               
+
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h:outputLabel value="Document" for="docu"/>
+                                            <h:inputText disabled="true" value="#{gestionUsuariosView.usueditar.numeroDocumento}" class="form-control form-control-user" id="docu" />
+                                           
+                                        </div>
+                                    </div>
+                                    <h:commandButton actionListener="#{gestionUsuariosView.editarUsuario()}" class="btn btn-primary btn-user btn-block" value="Register" />
+                                    <hr/>
+
+                                </h:form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        <!--modal registro usuarios--> 
+         <div class="modal fade bs-example-modal-lg" id="bd-example-modal-lgusu" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myLargeModalLabel">Editar User</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <h:form id="formregistrousu" class="user">
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <h:outputLabel value="First Name" for="#modal_register"/>
+                                            <h:inputText requiredMessage="muts enter firstname" required="true" value="#{gestionUsuariosView.usuariocrear.nombres}" class="form-control form-control-user" id="exampleFirstName" />
+                                            <h:message for="exampleFirstName" style="color: red" /> 
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h:outputLabel value="Last Name" for="exampleLastName"/>
+                                            <h:inputText requiredMessage="muts enter lastname" required="true" value="#{gestionUsuariosView.usuariocrear.apellidos}" class="form-control form-control-user" id="exampleLastName" />
+                                            <h:message for="exampleLastName" style="color: red" /> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Email Address" for="exampleInputEmail"/>
+                                        <h:inputText requiredMessage="muts ener email addres" required="true" value="#{gestionUsuariosView.usuariocrear.correo}" class="form-control form-control-user" id="exampleInputEmail" />
+                                        <h:message for="exampleInputEmail" style="color: red" /> 
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel value="Passworld" for="Password"/>
+                                        <h:inputSecret requiredMessage="muts enter passworld" required="true" value="#{gestionUsuariosView.usuariocrear.clave}" class="form-control form-control-user" id="Password" />
+                                        <h:message for="Password"  style="color: red"/> 
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <h:outputLabel  value="T Document" for="Doc"/>
+                                            <h:selectOneMenu requiredMessage="select item" required="true" value="#{gestionUsuariosView.usuariocrear.TDocumento}" id="Doc" class="form-control form-control-user" >
+                                                <f:selectItem itemLabel="cadula" itemValue="cedula" />
+                                                <f:selectItem itemLabel="cadula extangeria" itemValue="extangeria" />
+                                                <f:selectItem itemLabel="passaporte" itemValue="passaporte" />
+                                                <f:selectItem itemLabel="tajeta identidad" itemValue="tajeta identidad" />
+                                            </h:selectOneMenu>
+                                              <h:message for="Doc" style="color: red" />
+
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h:outputLabel value="Document" for="docu"/>
+                                            <h:inputText requiredMessage="must enter document" required="true" value="#{gestionUsuariosView.usuariocrear.numeroDocumento}" class="form-control form-control-user" id="docu" />
+                                             <h:message for="docu" style="color: red" />
+                                        </div>
+                                    </div>
+                                    <h:commandButton actionListener="#{gestionUsuariosView.registrarUsuario()}" class="btn btn-primary btn-user btn-block" value="Register" />
+                                    <hr/>
+
+                                </h:form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+         <!--modal  fin registro usuarios--> 
+        
+    </ui:composition>
+</html>
+

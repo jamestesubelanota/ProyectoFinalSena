@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+
+        <div class="main-container" >
+              <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                       <li class="breadcrumb-item active" aria-current="page">List of Employees</li>
+                </ol>
+            <hr/>
+
+            
+
+           
+                 <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Lists Employes</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th> name</th>
+                                    <th>Last name</th>
+                                    <th>Address</th>
+                                    <th>phone number</th>
+                                    <th>Email</th>
+                                    
+                                    <th>T document</th>
+                                      <th>Document Number</th>
+                                    <th>defined job</th>
+                                    <th>Genero</th>
+                                    <th>option</th>
+                                </tr>
+
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th> name</th>
+                                    <th>Last name</th>
+                                    <th>Address</th>
+                                    <th>phone number</th>
+                                    <th>Email</th>
+                                    
+                                    <th>T document</th>
+                                      <th>Document Number</th>
+                                    <th>defined job</th>
+                                    <th>Genero</th>
+                                    <th>option</th>
+                                </tr>
+                            </tfoot>
+                            <h:form>
+                           <c:forEach items="#{gestionPersonalView.listarPersonal}" var="personalIter">
+                                    <tr>
+                                        <td class="table-plus">#{personalIter.nombres}</td>
+                                        <td>#{personalIter.apellidos}</td>
+                                        <td>#{personalIter.direcion}</td>
+                                        <td>#{personalIter.celular} </td>
+                                        <td>#{personalIter.correo}</td>
+                                        <td>#{personalIter.TDocumento}</td>
+                                        <td>#{personalIter.numeroIdentificacion}</td>
+                                        <td>#{personalIter.cargo}</td>
+                                        <td>#{personalIter.genero}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                    <i class="dw dw-more"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+ 
+                                                    
+                                                    <h:commandLink action="#{gestionPersonalView.cargarEditarPersonal(personalIter)}" html5:data-toggle="modal" html5:data-target="#Medium-modal" class="dropdown-item" value="Edit" > <i class="dw dw-edit2"></i> 
+                                                        <f:ajax render="formpersonaledi">
+                                                            
+                                                        </f:ajax>
+                                                    </h:commandLink>
+                                                    <h:commandLink class="dropdown-item" value="Remove" action="#{gestionPersonalView.elimiarPersonal(personalIter)}" > <i class="dw dw-delete-3"></i> </h:commandLink>
+
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </c:forEach>
+                                </h:form>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medium modal -->
+        
+                <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <h:form id="formpersonaledi">
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value=" First Names" for="exampleInputEmail1" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.nombres}" class="form-control" id="exampleInputEmail1" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Lats Names" for="exampleInputEmail2" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.apellidos}" class="form-control" id="exampleInputEmail2" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Address" for="exampleInputEmail3" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.direcion}" class="form-control" id="exampleInputEmail3" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Phone number" for="exampleInputEmail4" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.celular}" class="form-control" id="exampleInputEmail4" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Email" for="exampleInputEmail5" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.correo}" class="form-control" id="exampleInputEmail5" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel   class="text-light-blue"  value="Document" for="exampleInputEmail6" />
+                                        <h:selectOneMenu value="#{gestionPersonalView.personalEditar.TDocumento}" class="form-control" id="exampleInputEmail6">
+                                            <f:selectItem itemLabel="cedula" itemValue="cedula" />
+                                            <f:selectItem itemLabel="Passport" itemValue="passport" />
+                                            <f:selectItem itemLabel="identity id" itemValue="identity id" />
+                                            <f:selectItem itemLabel="cedula extranjeria" itemValue="cedula extranjeria" />
+                                        </h:selectOneMenu>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Document number" for="exampleInputEmail7" />
+                                        <h:inputText value="#{gestionPersonalView.personalEditar.numeroIdentificacion}" class="form-control" id="exampleInputEmail7" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue" value="assigned work" for="exampleInputEmail8" />
+                                        <h:selectOneMenu value="#{gestionPersonalView.personalEditar.cargo}" class="form-control" id="exampleInputEmail8">
+                                            <f:selectItem itemLabel="Recreador" itemValue="Recreador" />
+                                            <f:selectItem itemLabel="Cordinador" itemValue="Cordinador" />
+                                            <f:selectItem itemLabel="Dj" itemValue="DJ" />
+                                            <f:selectItem itemLabel="Mesero" itemValue="Mesero" />
+                                            <f:selectItem itemLabel="Botarga" itemValue="Botarga" />
+                                            <f:selectItem itemLabel="secretaria" itemValue="secretaria" />
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Genero" for="exampleInputEmail9" />
+                                        <h:selectOneMenu value="#{gestionPersonalView.personalEditar.genero}" class="form-control" id="exampleInputEmail9">
+                                            <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                                            <f:selectItem itemLabel="Femenino" itemValue="Femenino" />
+
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <h:commandButton actionListener="#{gestionPersonalView.editarPersonal()}" class="btn btn-primary btn-block" value="Register"/>
+                                    </div>
+
+
+                                </h:form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+        
+    </ui:composition>
+</html>
+

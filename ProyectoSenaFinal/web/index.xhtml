@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Chispitas magicas</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="Sistema/DataTable/DataTables-1.10.21/css/dataTables.bootstrap4.css"/>
+
+    </h:head>
+    <h:body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#page-top">
+                        <img alt="Brand" src="assets/img/Copia de prototipo2.png"/>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                        aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">
+                                we are</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Events</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">
+                                Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">
+                                Contact </a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="publico/Login.xhtml">
+                                System</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-10 align-self-end">
+                        <h1 class="text-uppercase text-white font-weight-bold">"Events are fleeting, emotions last"</h1>
+                        <hr class="divider my-4" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <h:form>
+                        <h3 class="text-white-75 font-weight-light mb-5">
+                            We help you to carry out the events that you want so much to share with your loved ones forever</h3>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">More about us</a>
+                        <h:commandLink  actionListener="#{gestionEventosView.cargarMuestraUsuarios()}" value="price and services " class="btn btn-primary btn-xl js-scroll-trigger " html5:data-toggle="modal"  html5:data-target="#staticBackdrop">
+                            <f:ajax render="formx">
+                                
+                            </f:ajax>
+                        </h:commandLink>
+                      </h:form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="page-section bg-primary" id="about">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">
+                            You are in the right place !</h2>
+                        <hr class="divider light my-4" />
+                        <p class="text-white-50 mb-4">We are a company that has more than 28 years of experience with the
+                            best animations of children's parties, business, the best choice, talent and fun</p>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">
+                            Our services!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <h2 class="text-center mt-0">We offer you</h2>
+                <hr class="divider my-4" />
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                            <h3 class="h4 mb-2">High quality events</h3>
+                            <p class="text-muted mb-0">Our business and children's events are recognized for their great
+                                content</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                            <h3 class="h4 mb-2">
+                                Advisory</h3>
+                            <p class="text-muted mb-0">
+                                Our staff of coordinators and reenactors accompany you at all times and our reenactors make
+                                the event of high quality</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                            <h3 class="h4 mb-2">Ready to start </h3>
+                            <p class="text-muted mb-0">You can request your event no matter the time night and day</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 text-center">
+                        <div class="mt-5">
+                            <i class="fas fa-4x fa-heart text-primary mb-4"></i>
+                            <h3 class="h4 mb-2">Our relationship with clients</h3>
+                            <p class="text-muted mb-0">
+                                We do our events with the best talent and quality .</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                 role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Services</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="tablas">
+                                            <h:form id="formx">
+                                            <table id="example" class="table table-striped table-bordered"
+                                                   style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>event plan</th>
+                                                        <th>description</th>
+                                                        <th>Price</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach items="#{gestionEventosView.muestraEventos}" var="muestraIter">
+                                                    <tr>
+                                                        <td>#{muestraIter.nombre}</td>
+                                                        <td>#{muestraIter.descripcion}</td>
+                                                        <td>#{muestraIter.precio}</td>
+
+
+                                                    </tr>
+                                                   
+
+                                                  </c:forEach>
+
+
+
+                                                </tbody>
+                                            </table>
+                                                </h:form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio-->
+        <div id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto1.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto1.jpg" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Fancy dress</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto2.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto2.jpg" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Discotheque</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto3.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto3.jpg" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Inflatable Castles</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto4.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto4.jpg" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Business</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto5.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto5.jpg" alt="" />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">Entertainers</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/foto6.jpg">
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/foto6.jpg" alt="" />
+                            <div class="portfolio-box-caption p-3">
+                                <div class="project-category text-white-50">Category</div>
+                                <div class="project-name">more</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to action-->
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="Container text-center border ">
+                <div class="row">
+                    <div class="container col-md-6  border align-self-baseline">
+                        <h:form onsubmit="return validar();">
+                            <h2>how can we help you</h2>
+                            <div class="form-group">
+                                <h:outputLabel for="Nombre_contacto" value="First names" />
+                                <h:inputText  value="#{gestionMensajesView.crearMensaje.nombre}" class="form-control" id="Nombre_contacto" />
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="apellido" value="Last name" />
+                                <h:inputText value="#{gestionMensajesView.crearMensaje.apellido}" class="form-control" id="apellido" />
+                            </div>
+                            <div class="form-group">
+                               <h:outputLabel for="email" value="Email" />
+                               <h:inputText value="#{gestionMensajesView.crearMensaje.correo}" class="form-control" id="email" />
+                            </div>
+                            <div class="mesaje">
+                                <h:outputLabel for="mesaje" value="Message" />
+                                <h:inputText value="#{gestionMensajesView.crearMensaje.mensaje}" class="form-control" id="mesaje" />
+                            </div>
+                            <h:commandButton value="Send" class="btn-primary" action="#{gestionMensajesView.regitrarMensaje()}" />
+                            </h:form>
+                    </div>
+                    <div class="container col-md-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7953.615520723227!2d-74.14349435879073!3d4.628360225512099!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6030d5f34720022a!2sFIESTAS%20INFANTILES%20CHIA%20RECREADORES%2C%20RECREACIONISTAS%20CHISPITAS%20M%C3%81GICAS%20CHIA%20R.!5e0!3m2!1ses!2sco!4v1595967920795!5m2!1ses!2sco"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
+        
+
+    </h:body>
+</html>
+

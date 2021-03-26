@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition>
+
+        <div class="main-container" >
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Reports</li>
+                <li class="breadcrumb-item active" aria-current="page">View Reports</li>
+
+            </ol>
+            <hr/>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">request report</h5>
+        <p class="card-text">
+Generate contact report for sales</p>
+        <h:form>
+        <h:commandButton action="#{gestionMensajesView.descargaReporte()}"  class="btn btn-primary" value="Mensage reports"/>
+       </h:form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+            
+
+        </div>
+    </ui:composition>
+</html>
+

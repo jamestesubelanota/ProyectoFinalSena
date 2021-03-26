@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+
+        <div class="main-container">
+              <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Client</li>
+                <li class="breadcrumb-item active" aria-current="page"> Client List</li>
+            </ol>
+        </nav>
+            <hr/>
+            
+            
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Lists Employes</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Last names</th>
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Activity worck</th>
+                                    <th>Option</th>
+                                     
+                                </tr>
+
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Last names</th>
+                                    <th>Address</th>
+                                    <th>Email</th>
+                                    <th>Activity worck</th>
+                                    <th>Option</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <h:form>
+                                   
+                            <c:forEach items="#{gestionClientesView.listarClientes}"  var="clientesIter">
+                                    <tr>
+                                        <td class="table-plus">#{clientesIter.nombres}</td>
+                                        <td>#{clientesIter.apellidos}</td>
+                                        <td>#{clientesIter.direcion}</td>
+                                        <td>#{clientesIter.correo} </td>
+                                        <td>#{clientesIter.actividadEcono}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                    <i class="dw dw-more"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+
+
+                                                    <h:commandLink value="editar" actionListener="#{gestionClientesView.CargareLSClientes(clientesIter)}" class="btn-block" html5:data-toggle="modal" html5:data-target="#bd-example-modal-lg">
+
+                                                        <f:ajax render="fomrClient">
+
+                                                        </f:ajax>
+                                                    </h:commandLink>
+
+                                                    <h:commandLink  action="#{gestionClientesView.eliminarClientes(clientesIter)}" class="dropdown-item" value="Delete" > <i class="dw dw-delete-3"></i>  </h:commandLink>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                    </h:form>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div class="col-md-4 col-sm-12 mb-30">
+
+            <div class="modal fade bs-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <h:form id="fomrClient">
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x1" class="col-sm-12 col-md-2 col-form-label" value="Firts names"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.nombres}" class="form-control" id="x1" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x2" class="col-sm-12 col-md-2 col-form-label" value="Lats names"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.apellidos}" class="form-control" id="x2" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x3" class="col-sm-12 col-md-2 col-form-label" value="Address"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.direcion}" class="form-control" id="x3" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x4" class="col-sm-12 col-md-2 col-form-label" value="Email"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.correo}" class="form-control" id="x4" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x5" class="col-sm-12 col-md-2 col-form-label" value="Phone number"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.telefono}" class="form-control" id="x5" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+
+                                    <h:outputLabel for="x6" class="col-sm-12 col-md-2 col-form-label" value="Activity worck"/>
+                                    <div class="col-sm-12 col-md-10">
+                                        <h:inputText value="#{gestionClientesView.clientesEdit.actividadEcono}" class="form-control" id="x6" />
+
+                                    </div>
+                                </div>
+                             
+                                <h:commandButton  action="#{gestionClientesView.editarCliente()}" value="Register" class="btn-primary col-sm-12 col-md-2 col-form-label-lg"  />
+
+
+                            </h:form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:composition>
+</html>
+

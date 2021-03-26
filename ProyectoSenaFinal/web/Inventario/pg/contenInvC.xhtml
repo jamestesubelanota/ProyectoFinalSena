@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:hthml5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+        <div class="main-container" >
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Inventory </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add inventory</li>
+                </ol>
+            </nav>
+
+            <div class="card">
+                <div class="card-header">
+                    Inventory
+                </div>
+                <h:form>
+                <div class="card-body">
+                    <h5 class="card-title">Add inventory</h5>
+                  
+                        <div class="container-sm">
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Name" for="example2" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.nombre}" class="form-control" id="example2" />
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Marc" for="examplemarca" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.marca}" class="form-control" id="examplemarca" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Accesory" for="example1" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.accesorios}" class="form-control" id="example1" />
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Proovedor" for="example3" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.provedor}" class="form-control" id="example3" />
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="phone number" for="example4" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.telefono}" class="form-control" id="example4" />
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="location" for="example5" />
+                                <h:selectOneMenu value="#{gestionInventarioView.invenatarioCrear.ubicacion}" class="form-control" id="example5">
+                                    <f:selectItem itemLabel="casillero1" itemValue="casillero A" />
+                                    <f:selectItem itemLabel="casillero2" itemValue="casillero B" />
+                                    <f:selectItem itemLabel="casillero3" itemValue="casillero C" />
+                                    <f:selectItem itemLabel="casillero4" itemValue="casillero D" />
+                                    <f:selectItem itemLabel="casillero5" itemValue="casillero F" />
+                                    <f:selectItem itemLabel="casillero6" itemValue="casillero G" />
+
+                                </h:selectOneMenu>
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="categoria" for="example6" />
+
+                                <h:selectOneMenu value="#{gestionInventarioView.invenatarioCrear.categoria}" class="form-control" id="example6">
+                                    <f:selectItem itemLabel="disfrases" itemValue="disfras" />
+                                    <f:selectItem itemLabel="electronico" itemValue="electronico" />
+                                    <f:selectItem itemLabel="maquillaje" itemValue="maquillaje" />
+                                    <f:selectItem itemLabel="espumas" itemValue="espumas" />
+                                    <f:selectItem itemLabel="castillos" itemValue="castillos" />
+                                    <f:selectItem itemLabel="titeres" itemValue="titeres" />
+
+                                </h:selectOneMenu>
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="quantity" for="example7" />
+                                <h:inputText value="#{gestionInventarioView.invenatarioCrear.cantidad}" class="form-control" id="example7" />
+
+                            </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="state" for="example8" />
+
+                                <h:selectOneMenu value="#{gestionInventarioView.invenatarioCrear.estado}" class="form-control" id="example8">
+                                    <f:selectItem itemLabel="activo" itemValue="activo" />
+                                    <f:selectItem itemLabel="inactivo" itemValue="inactivo" />
+                                    
+
+                                </h:selectOneMenu>
+
+                            </div>
+                        </div>
+                        
+                    <h:commandButton actionListener="#{gestionInventarioView.registrarObjeto()}" class="btn btn-primary" value="Register"/>
+
+                   
+                </div>
+                </h:form>
+            </div>
+
+        </div>
+
+    </ui:composition>
+</html>
+

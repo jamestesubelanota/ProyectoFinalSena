@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition>
+        <div class="main-container" >
+            
+              <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Events</li>
+                       <li class="breadcrumb-item active" aria-current="page">Add Events</li>
+                </ol>
+            <hr/>
+              
+             
+            
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">Enter evens</h4>
+                        <p class="mb-30"></p>
+                    </div>
+                    <div class="pull-right">
+                      
+                    </div>
+                </div>
+                <div class="container-sm" >
+                <h:form>
+                    <div class="form-group row">
+                        <h:outputLabel for="x1" class="col-sm-12 col-md-2 col-form-label" value="Evens names" />
+                        <div class="col-sm-12 col-md-10">
+                            <h:inputText value="#{gestionEventosView.eventosCrear.nombre}" id="x1" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <h:outputLabel for="" class="col-sm-12 col-md-2 col-form-label" value="Descrition" /> 
+                        <div class="col-sm-12 col-md-10">
+                            <h:inputText value="#{gestionEventosView.eventosCrear.descripcion}" id="x2" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <h:outputLabel for="x3" class="col-sm-12 col-md-2 col-form-label" value="Prece" /> 
+                        
+                        <div class="col-sm-12 col-md-10">
+                            <h:inputText value="#{gestionEventosView.eventosCrear.precio}" id="x3" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        
+                        <div class="col-sm-12 col-md-6">
+                            <h:commandButton actionListener="#{gestionEventosView.crearEvento()}" class=" btn-primary" value="register" />
+                        </div>
+                    </div>
+                    
+                </h:form>
+                </div>
+            </div>
+        </div>
+
+    </ui:composition>
+</html>
+

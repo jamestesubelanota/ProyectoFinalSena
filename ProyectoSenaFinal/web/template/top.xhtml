@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+     <div class="header">
+		<div class="header-left">
+			<div class="menu-icon dw dw-menu"></div>
+			<div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
+			<div class="header-search">
+				
+			</div>
+		</div>
+		<div class="header-right">
+			<div class="dashboard-setting user-notification">
+				<div class="dropdown">
+                                   
+                                
+					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+						<i class="dw dw-settings2"></i>
+					</a>
+				</div>
+			</div>
+                    <h:form id="mensajess">
+			<div class="user-notification">
+				<div class="dropdown">
+                                   
+					<a  class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+						<i class="icon-copy dw dw-notification"></i>
+                                                <span style="background: greenyellow; width: 10px; height: 20px;" class="badge notification-active" 
+                                                      >  #{gestionMensajesView.listarMensaje.size()}</span>
+					</a>
+                            
+					<div class="dropdown-menu dropdown-menu-right">
+						<div class="notification-list mx-h-350 customscroll">
+                                                    
+							<ul>
+                                                            
+                                                             <c:forEach items="#{gestionMensajesView.listarMensaje}" var="MensajesIter">
+								<li>
+									<a href="#">
+										<img src="../vendors/images/sinfoto.jpeg" alt=""/>
+                                                                                <h3>#{MensajesIter.nombre} </h3>
+                                                                                <p>${MensajesIter.mensaje}</p>
+									</a>
+                                                                    <h:commandButton 
+                                                                        html5:data-placement="bottom"
+                                                                        
+                                                                        class="icon-copy fi-trash"  value="Remove" action="#{gestionMensajesView.eliminarMensaje(MensajesIter)}" >
+                                                                        <i class="icon-copy fi-trash"></i>
+                                                                    </h:commandButton>
+                                                                    
+								</li>
+								 </c:forEach>
+							</ul>
+                                                      
+						</div>
+					</div>
+                                        
+				</div>
+			</div>
+                    </h:form>
+			<div class="user-info-dropdown">
+				<div class="dropdown">
+					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<span class="user-icon">
+							<img src="vendors/images/photo1.jpg" alt=""/>
+						</span>
+						<span class="user-name">Ross C. Lopez</span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            <a class="dropdown-item" href="../misDatos/index.xhtml"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+					</div>
+				</div>
+			</div>
+			<div class="github-link">
+				<a href="https://github.com/dropways/deskapp" target="_blank"><img src="vendors/images/github.svg" alt=""/></a>
+			</div>
+		</div>
+	</div>
+    </ui:composition>
+
+</html>
