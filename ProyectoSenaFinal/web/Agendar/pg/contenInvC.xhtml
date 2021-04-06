@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:hthml5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <ui:composition>
+        <div class="main-container" >
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Inventory </li>
+                    <li class="breadcrumb-item active" aria-current="page">Add inventory</li>
+                </ol>
+            </nav>
+
+            <div class="card">
+                <div class="card-header">
+                    Inventory
+                </div>
+                <h:form>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Add inventory</h5>
+
+                        <div class="container-sm">
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Select Event" for="example5" />
+                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.nombreEvento}" class="form-control" id="example5">
+                                    <f:selectItem itemLabel="boda" itemValue="boda" />
+                                    <f:selectItem itemLabel="titeres" itemValue="titeres" />
+                                    <f:selectItem itemLabel="personalisada" itemValue="personalisada" />
+                                    <f:selectItem itemLabel="empresarial" itemValue="empresarial" />
+                                    <f:selectItem itemLabel="miniteca" itemValue="miniteca" />
+                                    <f:selectItem itemLabel="infantil" itemValue="infantil" />
+
+                                </h:selectOneMenu>
+
+                            </div>
+
+                            <div class="form-control">
+                              <div class="form-group row">
+  <p:outputLabel for="germanV2" value="German (other Pattern):"/>
+  <p:calendar id="germanV2" value="#{gestionAgendarView.agregarAg.fechaEvento}" locale="de" navigator="true"
+                        pattern="dd.MM.yyyy"/>
+                            </div>
+                                </div>
+
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Select cliente " for="examplec" />
+                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.cliente}" class="form-control" id="examplec">
+                                    <f:selectItem itemLabel="javier" itemValue="javier" />
+                                    <f:selectItem itemLabel="laura" itemValue="laura" />
+                                    <f:selectItem itemLabel="anthony" itemValue="anthony" />
+
+
+                                </h:selectOneMenu>
+
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel class="text-light-blue"  value="Select employe " for="examplee" />
+                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.personal}" class="form-control" id="examplee">
+                                    <f:selectItem itemLabel="yinela" itemValue="yinela" />
+                                    <f:selectItem itemLabel="eduardo" itemValue="eduardo" />
+                                    <f:selectItem itemLabel="lina" itemValue="lina" />
+
+
+                                </h:selectOneMenu>
+                                <div class="form-group">
+                                    <h:outputLabel class="text-light-blue"  value="Descrition " for="x3" />
+                                    <h:inputText value="#{gestionAgendarView.agregarAg.nota}" id="x3" class="form-control" />
+                                </div>
+                                                       
+                            </div>
+                        </div>
+
+                        <h:commandButton actionListener="#{gestionAgendarView.crearAgenda()}" class="btn btn-primary" value="Register"/>
+
+
+                    </div>
+                </h:form>
+            </div>
+
+        </div>
+
+    </ui:composition>
+</html>
+

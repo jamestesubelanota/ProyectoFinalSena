@@ -6,7 +6,6 @@
 package edu.app.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,14 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -39,7 +36,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cotizador.findAll", query = "SELECT c FROM Cotizador c")
     , @NamedQuery(name = "Cotizador.findByIdcotizacion", query = "SELECT c FROM Cotizador c WHERE c.idcotizacion = :idcotizacion")
     , @NamedQuery(name = "Cotizador.findByFecha", query = "SELECT c FROM Cotizador c WHERE c.fecha = :fecha")
-    , @NamedQuery(name = "Cotizador.findByDescripcion", query = "SELECT c FROM Cotizador c WHERE c.descripcion = :descripcion")})
+    , @NamedQuery(name = "Cotizador.findByDescripcion", query = "SELECT c FROM Cotizador c WHERE c.descripcion = :descripcion")
+    , @NamedQuery(name = "Cotizador.findByNombreCliente", query = "SELECT c FROM Cotizador c WHERE c.nombreCliente = :nombreCliente")
+    , @NamedQuery(name = "Cotizador.findByNombreEmpleado", query = "SELECT c FROM Cotizador c WHERE c.nombreEmpleado = :nombreEmpleado")
+    , @NamedQuery(name = "Cotizador.findByNombreEvento", query = "SELECT c FROM Cotizador c WHERE c.nombreEvento = :nombreEvento")})
 public class Cotizador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,6 +56,15 @@ public class Cotizador implements Serializable {
     @Size(max = 200)
     @Column(name = "descripcion")
     private String descripcion;
+    @Size(max = 55)
+    @Column(name = "nombre_cliente")
+    private String nombreCliente;
+    @Size(max = 45)
+    @Column(name = "nombre_empleado")
+    private String nombreEmpleado;
+    @Size(max = 45)
+    @Column(name = "nombre_evento")
+    private String nombreEvento;
     @JoinColumn(name = "idcli", referencedColumnName = "idclientes")
     @ManyToOne(fetch = FetchType.LAZY)
     private Clientes idcli;
@@ -65,8 +74,6 @@ public class Cotizador implements Serializable {
     @JoinColumn(name = "idper", referencedColumnName = "idpersonal")
     @ManyToOne(fetch = FetchType.LAZY)
     private Personal idper;
-    @OneToMany(mappedBy = "idcotiza", fetch = FetchType.LAZY)
-    private Collection<Registropago> registropagoCollection;
 
     public Cotizador() {
     }
@@ -104,6 +111,30 @@ public class Cotizador implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nombreEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
+    }
+
+    public String getNombreEvento() {
+        return nombreEvento;
+    }
+
+    public void setNombreEvento(String nombreEvento) {
+        this.nombreEvento = nombreEvento;
+    }
+
     public Clientes getIdcli() {
         return idcli;
     }
@@ -126,15 +157,6 @@ public class Cotizador implements Serializable {
 
     public void setIdper(Personal idper) {
         this.idper = idper;
-    }
-
-    @XmlTransient
-    public Collection<Registropago> getRegistropagoCollection() {
-        return registropagoCollection;
-    }
-
-    public void setRegistropagoCollection(Collection<Registropago> registropagoCollection) {
-        this.registropagoCollection = registropagoCollection;
     }
 
     @Override
