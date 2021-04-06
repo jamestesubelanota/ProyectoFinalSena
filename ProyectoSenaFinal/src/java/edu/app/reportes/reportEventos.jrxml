@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39afbcc0-ab3a-45c0-a21c-854accd103ce">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="364"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="bcf66fbc-f542-4ef0-9d4a-a2ac37947b3e"/>
+	<parameter name="Ficha" class="java.lang.String"/>
+	<parameter name="Usuario" class="java.lang.String"/>
+	<parameter name="images" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     eventos.`nombre` AS eventos_nombre,
+     eventos.`descripcion` AS eventos_descripcion,
+     eventos.`precio` AS eventos_precio
+FROM
+     `eventos` eventos]]>
+	</queryString>
+	<field name="eventos_nombre" class="java.lang.String"/>
+	<field name="eventos_descripcion" class="java.lang.String"/>
+	<field name="eventos_precio" class="java.math.BigDecimal"/>
+	<background>
+		<band height="555" splitType="Stretch">
+			<pie3DChart>
+				<chart isShowLegend="false" evaluationTime="Report">
+					<reportElement x="564" y="406" width="229" height="139" uuid="8d9988e2-7e0e-451d-9590-1553bcecb135"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="PieChartDataset" uuid="7fe12bb4-4207-404e-9151-3ff0a5a2cf4a">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(5)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[/* Replace with your key expression here */
+$V{REPORT_COUNT}]]></keyExpression>
+					<valueExpression><![CDATA[new Double(200*Math.random()*5)]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot backgroundAlpha="0.5" foregroundAlpha="0.8">
+						<seriesColor seriesOrder="0" color="#3399FF"/>
+						<seriesColor seriesOrder="1" color="#00CCFF"/>
+						<seriesColor seriesOrder="2" color="#0066CC"/>
+						<seriesColor seriesOrder="3" color="#6699FF"/>
+						<seriesColor seriesOrder="4" color="#004A94"/>
+						<seriesColor seriesOrder="5" color="#00356A"/>
+					</plot>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+			<line>
+				<reportElement x="673" y="394" width="117" height="1" uuid="534b3ec0-a66b-4572-bb4c-a48139a80616">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="72" y="37" width="204" height="1" uuid="04fc8eb9-1040-4f88-ae88-c48e5d8d18f4">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="227" y="332" width="250" height="211" uuid="5cf5f336-097f-448f-a3dd-464e628f5f11"/>
+				<imageExpression><![CDATA["/Users/jamesmaldonado/NetBeansProjects/ProyectoSenaFinal/web/assets/img/logo nuevo.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="173" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="5" y="93" width="449" height="29" uuid="b519104a-94c6-4306-a9d7-9a982a71babd"/>
+				<textElement>
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de eventos y precios ]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-22" y="12" width="822" height="65" forecolor="#006699" backcolor="#FFFFFF" uuid="a53ac6db-5616-49b1-b77f-1d8b4a784306"/>
+				<staticText>
+					<reportElement style="Title" x="24" y="0" width="578" height="65" forecolor="#000000" uuid="a3bbb01a-538a-4ab4-be01-82d72dfe7d12"/>
+					<textElement>
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Chispitas Magicas S.A.S]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="77" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="7179d7ed-b1e8-44c1-8a18-c5f839cc7bdd"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="2ce20d37-a4cb-46a9-9976-accea97d8fb4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="b825a9f1-79cc-436f-96c8-b60ecf1c3c58"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="12" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="4bd64eef-b59d-40e3-aa01-2108ad69fe24"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement style="SubTitle" x="5" y="122" width="657" height="17" uuid="99b57f90-7f1c-46c6-bb1a-9a17c4483f1d"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Se abjunta el reporte de los eventos y sus precios respectivos  de el area de gestion de eventos para su promocion ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="5" y="139" width="657" height="17" uuid="be53d630-390e-4372-80bc-3db2ca806b38"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[este reporte es genardo por el sistema chispitasSystem  reporte generado por  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="543" y="139" width="100" height="20" uuid="60ddfa39-d4fd-44f6-8d1b-4359a6623b8c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Ficha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="377" y="139" width="100" height="20" uuid="90631c6b-c0f6-4e02-832e-97c0b4dfc20c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Usuario}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="7df40b6f-24a6-41b3-b06b-f23c37a1f686"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="49" y="0" width="191" height="14" forecolor="#000000" uuid="da12226a-63c2-45d2-b7db-1ae986ac61a5"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[eventos_precio]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="10" y="0" width="191" height="14" forecolor="#000000" uuid="783db4f2-991d-41d3-851f-b372e7f217a7"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[eventos_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="127" y="0" width="191" height="14" forecolor="#000000" uuid="948fdb8b-4677-4057-ba39-44ecc2fd2175"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[eventos_descripcion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="5" y="14" width="575" height="1" uuid="d10fdc6c-060b-4915-9541-d04cfc7eb2b2"/>
+			</line>
+			<frame>
+				<reportElement x="5" y="0" width="575" height="14" uuid="aefccac6-a740-4d6f-8a99-dbb1938ea9c2"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="191" height="14" uuid="017c7c1a-3f36-4cce-b5e1-8fbca2647545"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventos_nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="122" y="0" width="191" height="14" uuid="82449603-29f8-4cc8-8342-e09f5a7851bb"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventos_descripcion}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="271" y="0" width="191" height="14" uuid="d30594f6-7d1c-436c-8ea4-82aa89d0dcad"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{eventos_precio}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="f58ba632-1584-48e1-a897-7ceede386012"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

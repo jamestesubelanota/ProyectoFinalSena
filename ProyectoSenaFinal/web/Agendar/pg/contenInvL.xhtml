@@ -10,88 +10,7 @@
 
         <div class="main-container">
 
-            <nav aria-label="breadcrumb"   >
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Inventory </li>
-                    <li class="breadcrumb-item active" aria-current="page">Litsinventory</li>
-                </ol>
-            </nav>
-
-            <!-- Aquí  esta el datable inventario -->
- <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Lists Employes</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Names</th>
-                                    <th>Marc</th>
-                                    <th>Aceesory</th>
-                                    <th>Proveedor</th>
-                                    <th>Phone number</th>
-                                    <th>location</th>
-                                      <th>Category</th>
-                                    <th>quantity</th>
-                                    <th>State</th>
-                                    <th>option</th>
-                                </tr>
-
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                   <th>Names</th>
-                                    <th>Marc</th>
-                                    <th>Aceesory</th>
-                                    <th>Proveedor</th>
-                                    <th>Phone number</th>
-                                    <th>location</th>
-                                      <th>Category</th>
-                                    <th>quantity</th>
-                                    <th>State</th>
-                                    <th>option</th>
-                                </tr>
-                            </tfoot>
-                            <h:form>
-                           <c:forEach items="#{gestionInventarioView.listaInventario}" var="InventarioIter">
-                                    <tr>
-                                        <td class="table-plus">#{InventarioIter.nombre}</td>
-                                        <td>#{InventarioIter.marca}</td>
-                                        <td>#{InventarioIter.accesorios}</td>
-                                        <td>#{InventarioIter.provedor} </td>
-                                        <td>#{InventarioIter.telefono}</td>
-                                        <td>#{InventarioIter.ubicacion}</td>
-                                        <td>#{InventarioIter.categoria}</td>
-                                        <td>#{InventarioIter.cantidad}</td>
-                                        <td>#{InventarioIter.estado}</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                    <i class="dw dw-more"></i>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
- 
-                                                    
-                                                    <h:commandLink action="#{gestionInventarioView.cargarEdicionInventario(InventarioIter)}" html5:data-toggle="modal" html5:data-target="#Medium-modal" class="dropdown-item" value="Edit" > <i class="dw dw-edit2"></i> 
-                                                        <f:ajax render="forminventario">
-                                                            
-                                                        </f:ajax>
-                                                    </h:commandLink>
-                                                    <h:commandLink class="dropdown-item" value="Remove" action="#{gestionInventarioView.eliminarObjeto(InventarioIter)}" > <i class="dw dw-delete-3"></i> </h:commandLink>
-
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                    </tr>
-                                </c:forEach>
-                                </h:form>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        
        
         </div>
         <!-- Aquí termina de datatable -->
@@ -105,67 +24,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <h:form id="forminventario">
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="  Name" for="exampleInputEmail1" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.nombre}" class="form-control" id="exampleInputEmail1" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Marc" for="exampleInputEmail2" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.marca}" class="form-control" id="exampleInputEmail2" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Aceesory" for="exampleInputEmail3" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.accesorios}" class="form-control" id="exampleInputEmail3" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Proveedor" for="exampleInputEmail4" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.provedor}" class="form-control" id="exampleInputEmail4" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Phone number" for="exampleInputEmail5" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.telefono}" class="form-control" id="exampleInputEmail5" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel   class="text-light-blue"  value="location" for="exampleInputEmail6" />
-                                <h:selectOneMenu value="#{gestionInventarioView.invenatarioEditar.ubicacion}" class="form-control" id="exampleInputEmail6">
-                                    <f:selectItem itemLabel="casillero1" itemValue="casillero A" />
-                                    <f:selectItem itemLabel="casillero2" itemValue="casillero B" />
-                                    <f:selectItem itemLabel="casillero3" itemValue="casillero C" />
-                                    <f:selectItem itemLabel="casillero4" itemValue="casillero D" />
-                                    <f:selectItem itemLabel="casillero5" itemValue="casillero F" />
-                                    <f:selectItem itemLabel="casillero6" itemValue="casillero G" />
-                                </h:selectOneMenu>
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Category" for="exampleInputEmail7" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.categoria}" class="form-control" id="exampleInputEm" />
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue" value="quantity" for="exampleInputEmail8" />
-                                <h:inputText value="#{gestionInventarioView.invenatarioEditar.cantidad}" class="form-control" id="exampleInputEmail8" />
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="State" for="exampleInputEmail9" />
-                                <h:selectOneMenu value="#{gestionPersonalView.personalEditar.genero}" class="form-control" id="exampleInputEmail9">
-                                    <f:selectItem itemLabel="Activo" itemValue="activo" />
-                                    <f:selectItem itemLabel="inactivo" itemValue="inactivo" />
-
-                                </h:selectOneMenu>
-                            </div>
-                            <div class="card-footer text-center">
-                                <h:commandButton actionListener="#{gestionInventarioView.editarObjeto()}" class="btn btn-primary btn-block" value="Register"/>
-                            </div>
-
-
-                        </h:form>
+                      
                     </div>
 
                 </div>

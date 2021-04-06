@@ -118,11 +118,11 @@ public class GestionEventosView  implements Serializable{
             Map parametro = new HashMap();
             parametro.put("Ficha", "1966821");
             parametro.put("Usuario", usuarioSession.getUsulogin().getNombres() + "" + usuarioSession.getUsulogin().getApellidos() );
-            parametro.put("images", context.getRealPath("vendors/images/chispitas-logo.png"));
+            parametro.put("images", context.getRealPath("/assets/img/logo nuevo.png"));
             Connection conec = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/chispitasMagicas", "root", "toor");
             System.out.println("Catalogo : " + conec.getCatalog());
             
-            File jasper = new File(context.getRealPath("/WEB-INF/classes/edu/app/reportes/EventosReporte.jasper"));
+            File jasper = new File(context.getRealPath("/WEB-INF/classes/edu/app/reportes/reportEventos.jasper"));
              
             JasperPrint jp = JasperFillManager.fillReport(jasper.getPath(), parametro, conec);
             
@@ -135,11 +135,11 @@ public class GestionEventosView  implements Serializable{
             facesContext.responseComplete();
            
         } catch (JRException e) {
-            System.out.println("edu.webapp1966781a.controlador.AdministradorView.descargaReporte() " + e.getMessage());
+            System.out.println("edu.webapp1966781a.controlador.getionEVENTOSiew.descargaReporte() " + e.getMessage());
         } catch(IOException i){
-            System.out.println("edu.webapp1966781a.controlador.AdministradorView.descargaReporte() " + i.getMessage());
+            System.out.println("edu.webapp1966781a.controlador.gestionEvenetos.descargaReporte() " + i.getMessage());
         } catch (SQLException q){
-            System.out.println("edu.webapp1966781a.controlador.AdministradorView.descargaReporte() " + q.getMessage());
+            System.out.println("edu.webapp1966781a.controlador.GestionEventos.descargaReporte() " + q.getMessage());
         }
  
     }

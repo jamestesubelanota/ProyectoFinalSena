@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d2a885a-4851-422a-a986-4a3525d391d3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="96"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="27605def-2723-465e-bd81-709d6e8753e1"/>
+	<parameter name="FichaReporte" class="java.lang.String"/>
+	<parameter name="UsuarioReporte" class="java.lang.String"/>
+	<parameter name="Jimagen" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     inventario.`nombre` AS inventario_nombre,
+     inventario.`ubicacion` AS inventario_ubicacion,
+     inventario.`cantidad` AS inventario_cantidad,
+     inventario.`estado` AS inventario_estado
+FROM
+     `inventario` inventario]]>
+	</queryString>
+	<field name="inventario_nombre" class="java.lang.String"/>
+	<field name="inventario_ubicacion" class="java.lang.String"/>
+	<field name="inventario_cantidad" class="java.lang.Integer"/>
+	<field name="inventario_estado" class="java.lang.String"/>
+	<background>
+		<band height="555" splitType="Stretch">
+			<pie3DChart>
+				<chart isShowLegend="false" evaluationTime="Report">
+					<reportElement x="566" y="389" width="229" height="139" uuid="30ef40d0-3d72-49a1-bce0-3cf3342aa93e"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="PieChartDataset" uuid="b7296b5d-cb02-45a1-9ace-3bf058fefe78">
+							<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(5)]]></dataSourceExpression>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[/* Replace with your key expression here */
+$V{REPORT_COUNT}]]></keyExpression>
+					<valueExpression><![CDATA[new Double(200*Math.random()*5)]]></valueExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot backgroundAlpha="0.5" foregroundAlpha="0.8">
+						<seriesColor seriesOrder="0" color="#3399FF"/>
+						<seriesColor seriesOrder="1" color="#00CCFF"/>
+						<seriesColor seriesOrder="2" color="#0066CC"/>
+						<seriesColor seriesOrder="3" color="#6699FF"/>
+						<seriesColor seriesOrder="4" color="#004A94"/>
+						<seriesColor seriesOrder="5" color="#00356A"/>
+					</plot>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+			<line>
+				<reportElement x="201" y="431" width="117" height="1" uuid="32fb52b7-6ae0-45f2-ae75-94f768daa5a1">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="72" y="37" width="204" height="1" uuid="50f6b036-6d43-40bd-91b7-0e1326914c9a">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="266" y="344" width="250" height="211" uuid="c8fa7e96-fa88-4357-a903-f06271fb5f66">
+					<property name="image" value=""/>
+				</reportElement>
+				<imageExpression><![CDATA["/Users/jamesmaldonado/NetBeansProjects/ProyectoSenaFinal/web/assets/img/logo nuevo.png"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="210" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="20" y="65" width="568" height="29" uuid="36a272e7-be28-429f-94b1-3fab8fbc3a8a"/>
+				<textElement>
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporte de ineventario  cantidad de objetos ubicaicon y estado]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="822" height="65" forecolor="#006699" backcolor="#FFFFFF" uuid="b31c104a-caac-42b4-ba1b-57859723c616"/>
+				<staticText>
+					<reportElement style="Title" x="40" y="0" width="578" height="65" forecolor="#000000" backcolor="#000000" uuid="52e08405-b62b-4f6f-99bd-78dae28927be"/>
+					<textElement>
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Chispitas Magicas S.A.S]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="20" y="108" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="d07cb503-1a2d-4c2b-a1de-31e579b4bebb"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="b10892f7-d799-4a5c-ad7f-5dcf87526a14"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="dd6e2d5c-8ed0-4335-8976-bfc9e10c0ed5"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="ccc99c53-7d56-47bf-a3fa-320fbf51eb21"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<staticText>
+				<reportElement style="SubTitle" x="23" y="136" width="593" height="18" uuid="1c9e911b-d972-484b-9dbe-fc9daf694333"/>
+				<textElement>
+					<font size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Se encuentra dentro de la mepresa los siguientes artivulos  en cada casillero cantidad y estado del obejto para  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="23" y="154" width="593" height="18" uuid="efb58e64-3fdd-486a-8401-feead1099f25"/>
+				<textElement>
+					<font size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[su respectivo uso .                                                                                            Generado por ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="640" y="154" width="92" height="18" uuid="0fd60a1a-754c-4409-9c2f-2f8c2304acf6"/>
+				<textFieldExpression><![CDATA[$P{FichaReporte}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="154" width="113" height="18" uuid="ef3b0c80-f951-4d3d-b7fa-bf195d58cd3e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{UsuarioReporte}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch">
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="bf57994e-03f3-4e57-9004-6f7ce8652f3e"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="79" y="0" width="143" height="14" forecolor="#000000" uuid="7e44f03b-35d7-4800-a69b-bf588682ca75"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[inventario_cantidad]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="228" y="0" width="143" height="14" forecolor="#000000" uuid="d54ff743-2351-4bd8-b73f-e7dcf7e85c28"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[inventario_estado]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="20" y="0" width="143" height="14" forecolor="#000000" uuid="84640cf8-f1b8-409d-8842-213833714247"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[inventario_nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" x="163" y="0" width="143" height="14" forecolor="#000000" uuid="dffb4c59-e419-4136-a88e-1fadf83be9a3"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[inventario_ubicacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="23" y="13" width="575" height="1" uuid="a338a1b0-825f-4d9e-a0bd-f503dec86410"/>
+			</line>
+			<frame>
+				<reportElement x="227" y="0" width="575" height="14" uuid="e614dbc4-b547-49d8-a45c-63680e8f320d"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="79" y="0" width="143" height="14" uuid="0ba59164-1e45-4cc0-81e6-254244240b3e"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{inventario_cantidad}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="222" y="0" width="143" height="14" uuid="1a5e5620-4037-4350-8cc8-3ee99f9b4acf"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{inventario_estado}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="20" y="0" width="143" height="14" uuid="e8f4b746-7e0e-4d2c-ba39-e5315868d44f"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inventario_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="163" y="1" width="143" height="14" uuid="2ae92485-a1d4-49f5-809a-d4ed74a234da"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{inventario_ubicacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="17b9c4fe-1ccd-48ec-b885-87723f2f6cce"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
