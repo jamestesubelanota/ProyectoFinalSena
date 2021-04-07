@@ -6,7 +6,6 @@
 package edu.app.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -33,8 +30,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Agendar.findAll", query = "SELECT a FROM Agendar a")
     , @NamedQuery(name = "Agendar.findById", query = "SELECT a FROM Agendar a WHERE a.id = :id")
     , @NamedQuery(name = "Agendar.findByNombreEvento", query = "SELECT a FROM Agendar a WHERE a.nombreEvento = :nombreEvento")
-    , @NamedQuery(name = "Agendar.findByFechaEvento", query = "SELECT a FROM Agendar a WHERE a.fechaEvento = :fechaEvento")
+    , @NamedQuery(name = "Agendar.findByDia", query = "SELECT a FROM Agendar a WHERE a.dia = :dia")
+    , @NamedQuery(name = "Agendar.findByDiaSemana", query = "SELECT a FROM Agendar a WHERE a.diaSemana = :diaSemana")
+    , @NamedQuery(name = "Agendar.findByMes", query = "SELECT a FROM Agendar a WHERE a.mes = :mes")
+    , @NamedQuery(name = "Agendar.findByAno", query = "SELECT a FROM Agendar a WHERE a.ano = :ano")
     , @NamedQuery(name = "Agendar.findByCliente", query = "SELECT a FROM Agendar a WHERE a.cliente = :cliente")
+    , @NamedQuery(name = "Agendar.findByDirecion", query = "SELECT a FROM Agendar a WHERE a.direcion = :direcion")
     , @NamedQuery(name = "Agendar.findByPersonal", query = "SELECT a FROM Agendar a WHERE a.personal = :personal")
     , @NamedQuery(name = "Agendar.findByNota", query = "SELECT a FROM Agendar a WHERE a.nota = :nota")})
 public class Agendar implements Serializable {
@@ -52,14 +53,32 @@ public class Agendar implements Serializable {
     private String nombreEvento;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "fecha_evento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaEvento;
+    @Column(name = "dia")
+    private int dia;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "dia_semana")
+    private String diaSemana;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "mes")
+    private String mes;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "ano")
+    private int ano;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "cliente")
     private String cliente;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "Direcion")
+    private String direcion;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -76,11 +95,15 @@ public class Agendar implements Serializable {
         this.id = id;
     }
 
-    public Agendar(Integer id, String nombreEvento, Date fechaEvento, String cliente, String personal) {
+    public Agendar(Integer id, String nombreEvento, int dia, String diaSemana, String mes, int ano, String cliente, String direcion, String personal) {
         this.id = id;
         this.nombreEvento = nombreEvento;
-        this.fechaEvento = fechaEvento;
+        this.dia = dia;
+        this.diaSemana = diaSemana;
+        this.mes = mes;
+        this.ano = ano;
         this.cliente = cliente;
+        this.direcion = direcion;
         this.personal = personal;
     }
 
@@ -100,12 +123,36 @@ public class Agendar implements Serializable {
         this.nombreEvento = nombreEvento;
     }
 
-    public Date getFechaEvento() {
-        return fechaEvento;
+    public int getDia() {
+        return dia;
     }
 
-    public void setFechaEvento(Date fechaEvento) {
-        this.fechaEvento = fechaEvento;
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+
+    public String getMes() {
+        return mes;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
 
     public String getCliente() {
@@ -114,6 +161,14 @@ public class Agendar implements Serializable {
 
     public void setCliente(String cliente) {
         this.cliente = cliente;
+    }
+
+    public String getDirecion() {
+        return direcion;
+    }
+
+    public void setDirecion(String direcion) {
+        this.direcion = direcion;
     }
 
     public String getPersonal() {

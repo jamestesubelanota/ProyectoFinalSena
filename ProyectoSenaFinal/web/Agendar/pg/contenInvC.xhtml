@@ -22,15 +22,17 @@
                 <div class="card-header">
                     Inventory
                 </div>
-                <h:form>
+               
 
                     <div class="card-body">
+                         <h:form>
                         <h5 class="card-title">Add inventory</h5>
-
+                          
                         <div class="container-sm">
                             <div class="form-group">
                                 <h:outputLabel class="text-light-blue"  value="Select Event" for="example5" />
-                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.nombreEvento}" class="form-control" id="example5">
+                               
+                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.nombreEvento}" class="form-control-plaintext" id="example5">
                                     <f:selectItem itemLabel="boda" itemValue="boda" />
                                     <f:selectItem itemLabel="titeres" itemValue="titeres" />
                                     <f:selectItem itemLabel="personalisada" itemValue="personalisada" />
@@ -42,50 +44,141 @@
 
                             </div>
 
-                            <div class="form-control">
-                              <div class="form-group row">
-  <p:outputLabel for="germanV2" value="German (other Pattern):"/>
-  <p:calendar id="germanV2" value="#{gestionAgendarView.agregarAg.fechaEvento}" locale="de" navigator="true"
-                        pattern="dd.MM.yyyy"/>
-                            </div>
-                                </div>
-
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Select cliente " for="examplec" />
-                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.cliente}" class="form-control" id="examplec">
-                                    <f:selectItem itemLabel="javier" itemValue="javier" />
-                                    <f:selectItem itemLabel="laura" itemValue="laura" />
-                                    <f:selectItem itemLabel="anthony" itemValue="anthony" />
-
-
-                                </h:selectOneMenu>
-
-                            </div>
-                            <div class="form-group">
-                                <h:outputLabel class="text-light-blue"  value="Select employe " for="examplee" />
-                                <h:selectOneMenu value="#{gestionAgendarView.agregarAg.personal}" class="form-control" id="examplee">
-                                    <f:selectItem itemLabel="yinela" itemValue="yinela" />
-                                    <f:selectItem itemLabel="eduardo" itemValue="eduardo" />
-                                    <f:selectItem itemLabel="lina" itemValue="lina" />
-
-
-                                </h:selectOneMenu>
+                            <div class="container-sm">
+                                
                                 <div class="form-group">
-                                    <h:outputLabel class="text-light-blue"  value="Descrition " for="x3" />
-                                    <h:inputText value="#{gestionAgendarView.agregarAg.nota}" id="x3" class="form-control" />
-                                </div>
-                                                       
+                                    <h:outputLabel class="text-light-blue"  value="Select date" for="example6" />
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.dia}" class="form-control-sm" id="example4">
+                                        <f:selectItem itemLabel="1" itemValue="1" />
+                                        <f:selectItem itemLabel="2" itemValue="2" />
+                                        <f:selectItem itemLabel="3" itemValue="3" />
+                                        <f:selectItem itemLabel="4" itemValue="4" />
+                                        <f:selectItem itemLabel="5" itemValue="5" />
+                                        <f:selectItem itemLabel="6" itemValue="6" />
+                                        <f:selectItem itemLabel="7" itemValue="7" />
+                                        <f:selectItem itemLabel="8" itemValue="8" />
+                                        <f:selectItem itemLabel="9" itemValue="9" />
+                                        <f:selectItem itemLabel="10" itemValue="10" />
+                                        <f:selectItem itemLabel="11" itemValue="11" />
+                                        <f:selectItem itemLabel="12" itemValue="12" />
+                                        <f:selectItem itemLabel="13" itemValue="13" />
+                                        <f:selectItem itemLabel="14" itemValue="14" />
+                                        <f:selectItem itemLabel="15" itemValue="15" />
+                                        <f:selectItem itemLabel="16" itemValue="16" />
+                                        <f:selectItem itemLabel="17" itemValue="17" />
+                                        <f:selectItem itemLabel="18" itemValue="18" />
+                                        <f:selectItem itemLabel="19" itemValue="19" />
+                                        <f:selectItem itemLabel="20" itemValue="20" />
+                                        <f:selectItem itemLabel="21" itemValue="21" />
+                                        <f:selectItem itemLabel="22" itemValue="22" />
+                                        <f:selectItem itemLabel="23" itemValue="23" />
+                                        <f:selectItem itemLabel="24" itemValue="24" />
+                                        <f:selectItem itemLabel="25" itemValue="25" />
+                                        <f:selectItem itemLabel="26" itemValue="26" />
+                                        <f:selectItem itemLabel="27" itemValue="27" />
+                                        <f:selectItem itemLabel="28" itemValue="28" />
+                                        <f:selectItem itemLabel="29" itemValue="29" />
+                                        <f:selectItem itemLabel="30" itemValue="30" />
+                                        <f:selectItem itemLabel="31" itemValue="31" />
+
+
+
+
+                                    </h:selectOneMenu>
+                                    
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.diaSemana}" class="form-control-sm" id="example7">
+                                        <f:selectItem itemLabel="Monday" itemValue="Monday" />
+                                        <f:selectItem itemLabel="tuesday" itemValue="tuesday" />
+                                        <f:selectItem itemLabel="wednesday" itemValue="wednesday" />
+                                        <f:selectItem itemLabel="thursday" itemValue="thursday" />
+                                        <f:selectItem itemLabel="Friday" itemValue="friday" />
+                                        <f:selectItem itemLabel="Saturday" itemValue="Saturday" />
+                                        <f:selectItem itemLabel="Sunday" itemValue="Sunday" />
+
+                                    </h:selectOneMenu>
+                                    
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.mes}" class="form-control-sm" id="example8">
+                                        <f:selectItem itemLabel="January" itemValue="January" />
+                                         <f:selectItem itemLabel="February" itemValue="February" />
+                                        <f:selectItem itemLabel="March" itemValue="March" />
+                                        <f:selectItem itemLabel="April" itemValue="April" />
+                                        <f:selectItem itemLabel="May" itemValue="May" />
+                                        <f:selectItem itemLabel="June" itemValue="June" />
+                                        <f:selectItem itemLabel="july" itemValue="July" />
+                                        <f:selectItem itemLabel="August" itemValue="August" />
+                                        <f:selectItem itemLabel="September" itemValue="September" />
+                                        <f:selectItem itemLabel="October" itemValue="October" />
+                                        <f:selectItem itemLabel="November" itemValue="November" />
+                                        <f:selectItem itemLabel="December" itemValue="December" />
+                                       
+
+                                    </h:selectOneMenu>
+                                    
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.ano}" class="form-control-sm" id="example9">
+                                        <f:selectItem itemLabel="2021" itemValue="2021" />
+                                        <f:selectItem itemLabel="2022" itemValue="2022" />
+                                        <f:selectItem itemLabel="2023" itemValue="2023" />
+                                        <f:selectItem itemLabel="2024" itemValue="2024" />
+                                        <f:selectItem itemLabel="2025" itemValue="2025" />
+                                        <f:selectItem itemLabel="2026" itemValue="2026" />
+                                        <f:selectItem itemLabel="2027" itemValue="2027" />
+                                        <f:selectItem itemLabel="2028" itemValue="2028" />
+                                        <f:selectItem itemLabel="2029" itemValue="2029" />
+                                        <f:selectItem itemLabel="2030" itemValue="2030" />
+
+
+
+
+                                    </h:selectOneMenu>
+
                             </div>
+
+                               
+
+                                <div class="form-group">
+                                    <h:outputLabel class="text-light-blue"  value="Select cliente " for="examplec" />
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.cliente}" class="form-control" id="examplec">
+                                        <f:selectItem itemLabel="javier" itemValue="javier" />
+                                        <f:selectItem itemLabel="laura" itemValue="laura" />
+                                        <f:selectItem itemLabel="anthony" itemValue="anthony" />
+
+
+                                    </h:selectOneMenu>
+
+                                </div>
+                                
+                                <div class="form-group">
+                                     <h:outputLabel class="text-light-blue"  value="Address " for="example0" />
+                                     <h:inputText id="example0" value="#{gestionAgendarView.agregarAg.direcion}" class="form-control"/>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <h:outputLabel class="text-light-blue"  value="Select employe " for="examplee" />
+                                    <h:selectOneMenu value="#{gestionAgendarView.agregarAg.personal}" class="form-control" id="examplee">
+                                        <f:selectItem itemLabel="yinela" itemValue="yinela" />
+                                        <f:selectItem itemLabel="eduardo" itemValue="eduardo" />
+                                        <f:selectItem itemLabel="lina" itemValue="lina" />
+
+
+                                    </h:selectOneMenu>
+                                    <div class="form-group">
+                                        <h:outputLabel class="text-light-blue"  value="Descrition " for="x3" />
+                                        <h:inputText value="#{gestionAgendarView.agregarAg.nota}" id="x3" class="form-control" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <h:commandButton actionListener="#{gestionAgendarView.crearAgenda()}" class="btn btn-primary" value="Register"/>
+
+
                         </div>
-
-                        <h:commandButton actionListener="#{gestionAgendarView.crearAgenda()}" class="btn btn-primary" value="Register"/>
-
-
-                    </div>
                 </h:form>
             </div>
 
         </div>
+            </div>
+    
 
     </ui:composition>
 </html>
